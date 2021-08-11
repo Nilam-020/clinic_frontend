@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap');
+.App {
+  font-family: 'Montserrat';
+  overflow: hidden;
+}
+p{
+  line-height: 1.8;
+  font-size: 1rem;
+}
+.dominefont{
+  font-family: domine, 'sans-serif';
+}
+.text-black{
+color: #000 !important;
+}
+.secondtext{
+  background-color:#F25044 !important;
+  color: #fff !important;
+}
+.text{
+  color:#F25044 !important;
+}
+.App-link {
+  color: #61dafb;
+}
+.menu{
+  background-color: #DDE5F5 !important;
+}
+
+
+.nav-link{
+  color:rgba(28,28,28,71%)!important;
+  font-size: 1.2rem;
+  margin-right:1rem;
+}
+.aboutus{
+  background-color: #DDE5F5 !important;
+  min-height:87vh;
+}
+
+.copy{
+  font-weight: bold;
+  padding-right: 0.5rem;
+}
+.nav-link:hover{
+  color:#F25044!important;
+  border-bottom: solid 1px #F25044;
+}
+.homeTitle{
+  font-family: domine, 'sans-serif';
+  color:#252d6c;
+}
+.carouselimg{
+  height: 90vh !important;
+}
+.aboutImg{
+  border-radius: 0px 25px 25px 0px;
+}
+.services h5{
+  font-size: 1.1rem;
+  color: #0088E2;
+  font-weight: bold !important;
+}
+.services h2{
+  font-size: 2.5rem;
+  font-family: domine, 'sans-serif';
+  color: #000;
+  font-weight: bold !important;
+}
+.testImg{
+  width:auto !important;
+  height:59.25px !important;
+}
+.testimonials .card{
+  border: none !important;
+  margin-top: 6rem;
+}
+.find h2{
+  font-size:2.1rem;
+  font-family: domine, 'sans-serif';
+}
+.find p{
+  line-height: 1.8;
+}
+.linkButton{
+margin-left: 40%;
+background-color: #F25044 !important;
+}
+.starrating{
+  color:#FFDF00;
+}
+.findDoctor{
+  border: none !important;
+}
+.card_style{
+  background-color: #61dafb ;
+}
+.docback{
+  border: none !important;
+}
+.DocImage{
+  width: auto;
+  height: 300px;
+}
+.text-2{
+  font-size: 2rem;
+  text-align: center;
+}
+
+.docLink{
+  text-decoration: none !important;
+  text-align: center;
+}
+.doclist{
+  box-shadow: 8px 8px 5px gray;
+}
+.loginform{
+  border-radius: 50px;
+  box-shadow: 10px 10px 5px grey;
+
+}
+.boldtext
+{
+  font-weight: 800;
+  color: #F25044  !important;
+  font-size: 2.5rem;
+} 
+.welcome_text   
+{
+  font-weight: 900 !important;
+  color: #F25044  !important;
+}
+/*User profile*/
+.userImage{
+  width: 171px;
+  height:180px;
+  border: #0088E2 solid 3px;
+}
+.showDoctorImg{
+width:100px;
+height:100px;
+border: #0088E2 solid 2px;
+}
+.adminLogin{
+  text-align: right;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.ratingradio{
+  display:none  !important;
+}
+.star{
+  cursor:pointer;
+  transition: color 200ms;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+@media screen and(max-width:475px){
+  
+  .homeTitle{
+    font-size:1rem;
+    line-height:1.8;
+    transition: all 1s cubic-bezier(0.76, 0, 0.24, 1) 0s ;
+  }
+  .logo{
+    position:absolute;
+    margin: 5px;
+  }
+  .aboutus{
+    background-color: #DDE5F5 !important;
+    height:auto;
+  }
+
+  .loginimage{
+    display: none !important;
+  }
+  .adminLogin{
+    text-align: left !important;
+
+  }
+}
+
+@media screen and (min-width:1000px){
+  .homeTitle{
+    font-size:48px;
+    line-height:50px;
+    transition: all 1s cubic-bezier(0.76, 0, 0.24, 1) 0s ;
+  }
+  .logintext a{
+    color:#F25044 !important;
+    
+  }
+ 
+ 
+}
+
+
+
