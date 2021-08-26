@@ -7,198 +7,175 @@ import Call from "../../Call";
 
 class doctorDetails extends Component {
 
-    state = {
-        doctor: [],
-        ratings: 0,
-        config: {
-            "headers": {
-                "authorization": `Bearer ${sessionStorage.getItem("token")}`
-            }
+  state = {
+    doctor: [],
+    ratings: 0,
+    config: {
+      "headers": {
+        "authorization": `Bearer ${sessionStorage.getItem("token")}`
+      }
+    },
+    "user":JSON.parse(sessionStorage.getItem("user")),
+    "description": "",
+    "VID": ""  
+  }
+  handleModal() {
+    this.setState({ show: !this.state.show })
+  }
+  componentDidMount() {
+    
+    
+
+    axios.get("http://localhost:5000/doctor/" + this.props.match.params.id).then((response) => {
+
+      this.setState({
+        doctor: response.data.data
+      })
+      this.setState({
+        dI: this.state.doctor[0]
+      })
+    }).catch((err) => {
+      console.log(err);
+    })
+
+    axios.get("http://localhost:5000/myRatings/" + this.props.match.params.id + "/" + this.state.user._id)
+      .then((response) => {
+        console.log(response.data.rating)
+        if (response.data.success == true) {
+          this.setState({
+            ratings: response.data.rating
+          })
         }
 
-    }
-    // constructor(props) {
-    //     super(props)
 
-    //     this.state = {
-    //         show: false
-
-    //     }
-    // }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
 
 
-    handleModal() {
-        this.setState({ show: !this.state.show })
-    }
-    componentDidMount() {
-        axios.get("http://localhost:5000/doctor/" + this.props.match.params.id).then((response) => {
+  changeRating = (newRating, name) => {
+    axios.post('http://localhost:5000/doctor/rating/' + this.props.match.params.id, { "rating": newRating, "id": this.state.user._id })
+      .then((response) => {
+        if (response.data.success == true) {
+          console.log(response)
+          window.location.reload();
+        }
 
-            this.setState({
-                doctor: response.data.data
-            })
-            this.setState({
-                dI: this.state.doctor[0]
-            })
-            this.setState({
-                singleDoctor: this.state.dI.doctor_id
-            })
-
-
-        }).catch((err) => {
-            console.log(err);
-        })
-
-        axios.get("http://localhost:5000/myRatings/"+this.props.match.params.id,this.state.config)
-        .then((response)=>{
-            console.log(response.data.rating)
-            if(response.data.success == true)
-            {
-                this.setState({
-                    ratings:response.data.rating
-                })
-            }
-
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-    }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
 
 
-    changeRating = (newRating, name) => {
-        axios.post('http://localhost:5000/doctor/rating/' + this.props.match.params.id, { "rating": newRating }, this.state.config)
-            .then((response) => {
-                if (response.data.success == true) {
-                    console.log(response)
-                    window.location.reload();
+  bookappointment = (e) => {
+   console.log(this.state)
+   
+   e.preventDefault();
+    axios.post("http://localhost:5000/appointment/add/" + this.props.match.params.id + "/" + this.state.user._id, {"description":this.state.description,"VID":document.querySelector('#myId').value})
+      .then((response) => {
+        console.log(response)
+      }).catch((err) => {
+        console.log(err.response)
+      })
+  }
+
+  changeHandler = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+
+  }
+
+  
+
+  render() {
+   
+    document.getElementById('star-rating')
+    return (
+      <>
+
+        <Container>
+          <Row className="mt-2">
+            <Col sm={12} md={6}>
+              <Card className="docback">
+                {
+                  this.state.doctor.profile != "no-photo.jpg" ?
+                    (
+                      <Card.Img src={`http://localhost:5000/${this.state.doctor.profile}`} alt={`http://localhost:5000/${this.state.doctor.profile}`} className="DocImage" />
+
+                    ) :
+                    (
+                      <Card.Img src="assets/favicon.png" className="DocImage" />
+
+                    )
                 }
-
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
-
-
-
-    bookappointment = (e) => {
-        axios.post("http://localhost:5000/appointment/add/" + this.state.id, {}, this.state.config)
-            .then((response) => {
-                console.log(response)
-            }).catch((err) => {
-                console.log(err.response)
-            })
-            window.location.href="/myAppointment"
-    }
-
-    changeHandler = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-
-    }
-
-    render() {
-
-        document.getElementById('star-rating')
-        return (
-            <>
-
-                <Container>
-                    <Row className="mt-2">
-                        <Col sm={12} md={6}>
-                            <Card className="docback">
-                                {
-                                    this.state.doctor.profile != "no-photo.jpg" ?
-                                        (
-                                            <Card.Img src={`http://localhost:5000/${this.state.doctor.profile}`} alt={`http://localhost:5000/${this.state.doctor.profile}`} className="DocImage" />
-
-                                        ) :
-                                        (
-                                            <Card.Img src="assets/favicon.png" className="DocImage" />
-
-                                        )
-                                }
-                                <h1 className="text-center mt-5"> <StarRatings
-                                    rating={this.state.doctor.rating}
-                                    starRatedColor="#FFD700"
-                                    starHoverColor="#FFD700"
-                                    numberOfStars={5}
-                                    name={this.props.match.params.id}
-                             
-
-                                /></h1>
-                                <Card.Body>
+                <h1 className="text-center mt-5"> <StarRatings
+                  rating={this.state.doctor.rating}
+                  starRatedColor="#FFD700"
+                  starHoverColor="#FFD700"
+                  numberOfStars={5}
+                  name={this.props.match.params.id}
 
 
-                                    <Card.Title className="text-center">Dr. {this.state.doctor.firstname} {this.state.doctor.lastname} </Card.Title>
-                                    <Card.Subtitle className="text-center">{this.state.doctor.department}</Card.Subtitle>
+                /></h1>
+                <Card.Body>
 
 
-                                    <Card.Subtitle className="mt-2 text-center text-muted">{this.state.doctor.worked}</Card.Subtitle>
-                                    <Card.Subtitle className="mt-2 text-center text-muted">NMC Number {this.state.doctor.nmc}</Card.Subtitle>
+                  <Card.Title className="text-center">Dr. {this.state.doctor.firstname} {this.state.doctor.lastname} </Card.Title>
+                  <Card.Subtitle className="text-center">{this.state.doctor.department}</Card.Subtitle>
 
 
-                                    <Card.Text className="mt-5">
-                                        <Card.Subtitle className="text-center pt-2">{this.state.doctor.specialisation}</Card.Subtitle>
-                                        <p>{this.state.doctor.description}</p>
+                  <Card.Subtitle className="mt-2 text-center text-muted">{this.state.doctor.worked}</Card.Subtitle>
+                  <Card.Subtitle className="mt-2 text-center text-muted">NMC Number {this.state.doctor.nmc}</Card.Subtitle>
 
 
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-
-                        </Col>
-                        <Col sm={12} md={6}>
-
-                            <Form className="bookappointment menu loginform mt-5 p-5">
-                                <p className="text-center text"><h3>Request for Callback</h3></p>  
-                                <input type='text' placeholder="video id"/>                             
-                             <Form.Group>
-                                
-                                 <Form.Label>Problem Description</Form.Label>
-                                 <Form.Control as="textarea" row={5}/>
-                             </Form.Group>
-                                <p className="text-center">
-                                    <Link className="btn btn-lg px-5 mt-2 justify-content-center text-decoration-none secondtext" onClick={() => { this.handleModal() }} type="submit">
-                                        Book
-  </Link></p>
-
-                                <h1 className="text-center">     <StarRatings
-                                    rating={this.state.ratings}
-                                    starRatedColor="#FFD700"
-                                    starHoverColor="#FFD700"
-                                    numberOfStars={5}
-                                    name={this.props.match.params.id}
-                                    changeRating={this.changeRating}
-
-                                />
-                                </h1>
+                  <Card.Text className="mt-5">
+                    <Card.Subtitle className="text-center pt-2">{this.state.doctor.specialisation}</Card.Subtitle>
+                    <p>{this.state.doctor.description}</p>
 
 
-                            </Form>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
 
+            </Col>
+            <Col sm={12} md={6}>
 
+              <Form className="bookappointment menu loginform mt-5 p-5">
+                <p className="text-center text"><h3>Request for Callback</h3></p>
+                <input type='text' placeholder="video id" id="myId" value={sessionStorage.getItem('me')}/>
+                <Form.Group>
 
-                        </Col>
+                  <Form.Label>Problem Description</Form.Label>
+                  <Form.Control as="textarea" row={5} name="description" value={this.state.description} onChange={(e) => { this.changeHandler(e) }} />
+                </Form.Group>
+                <p className="text-center">
+                  <Link className="btn btn-lg px-5 mt-2 justify-content-center text-decoration-none secondtext" onClick={(e) => { this.bookappointment(e) }} type="submit">
+                    Request Callback
+                  </Link></p>
 
-                    </Row>
-                    {/* <Modal show={this.state.show}>
-                        <Modal.Body>Add Your Appointment</Modal.Body>
-                        <Modal.Footer>
-                            <div className="text-center align-content-center">
-                                <Link className="btn btn-success px-lg-5 text-left mr-2" onClick={() => { this.bookappointment(); this.handleModal() }}>Confirm</Link>
-                                <Link className="btn btn-danger px-lg-5" onClick={() => { this.handleModal() }}>Close</Link>
-                            </div>
+                <h1 className="text-center">     <StarRatings
+                  rating={this.state.ratings}
+                  starRatedColor="#FFD700"
+                  starHoverColor="#FFD700"
+                  numberOfStars={5}
+                  name={this.props.match.params.id}
+                  changeRating={this.changeRating}
 
-                        </Modal.Footer>
-                    </Modal> */}
-                </Container>
-                <Call />
-            </>
-        )
-    }
+                />
+                </h1>
+              </Form>
+            </Col>
+          </Row>
+        </Container>
+        <Call />
+      </>
+    )
+  }
 }
 export default doctorDetails;

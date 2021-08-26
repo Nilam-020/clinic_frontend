@@ -1,13 +1,15 @@
 import React, { createContext, useState, useRef, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
+import useStorage from './components/findDoctor/useStorage'
 
 const SocketContext = createContext();
 
-const socket = io('http://localhost:5000/');
+const socket = io('http://localhost:5000');
 // const socket = io('https://warm-wildwood-81069.herokuapp.com');
 
 const ContextProvider = ({ children }) => {
+  const {myDataHandler} = useStorage();
   const [callAccepted, setCallAccepted] = useState(false);
   const [callEnded, setCallEnded] = useState(false);
   const [stream, setStream] = useState();
@@ -23,10 +25,20 @@ const ContextProvider = ({ children }) => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
         setStream(currentStream);
+       
         myVideo.current.srcObject = currentStream;
-      });
+      })
+      .catch((err)=>{
 
-    socket.on('me', (id) => setMe(id));
+      })
+
+    socket.on('me', (id) => 
+    {
+  
+       myDataHandler(id);
+        setMe(id)
+    }   
+    );
 
     socket.on('callUser', ({ from, name: callerName, signal }) => {
       setCall({ isReceivingCall: true, from, name: callerName, signal });

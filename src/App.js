@@ -7,6 +7,8 @@ import Body from './components/Body/Body';
 import Header from './components/Body/Header/Header';
 import Footer from './components/Body/Header/Footer';
 import DoctorLogin from './components/Doctor/DoctorLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const App = () => {
@@ -26,6 +28,7 @@ const App = () => {
           </Route>
         </Switch>
       </Router>
+      <ToastContainer />
     </>
   );
 };

@@ -9,7 +9,7 @@ function Footer() {
            <Container >
                 <Row className="p-2">
                     <Col md={4} sm={12}>
-                        <Image src="/assets/Group 51.png" />
+                        <Image src="/assets/Group51.png" />
                         <p className="mt-4">Iclinic. Is The Administrative
                         Support Entity And All Clinical
 Services.</p>

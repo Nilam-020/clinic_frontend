@@ -8,9 +8,7 @@ export default class UserHome extends Component {
         super(props)
         this.state = {
             show: false
-        }
-
-     
+        }    
         
     }
     handleModal() {
@@ -40,7 +38,7 @@ export default class UserHome extends Component {
     updateUserInfo = (e) => {
         console.log("button clicked")
         var userId = JSON.parse(sessionStorage.getItem("user"));
-        axios.put("https://hospital-eticketing.herokuapp.com/user/profile/update/" + userId._id, this.state)
+        axios.put("http://localhost:5000/user/profile/update/" + userId._id, this.state)
             .then((response) => {
                 sessionStorage.setItem("user",JSON.stringify(response.data.data))
                 window.location.reload()
@@ -61,7 +59,7 @@ export default class UserHome extends Component {
                         {
                             user.profile !== "no-photo.jpg" ?
                                 (
-                                    <Image src={`https://hospital-eticketing.herokuapp.com/${user.profile}`} className="userImage" roundedCircle />
+                                    <Image src={`http://localhost:5000/${user.profile}`} className="userImage" roundedCircle />
                                 ) :
                                 (
                                     <Image src="assets/favicon.png" className="userImage w-50" roundedCircle />

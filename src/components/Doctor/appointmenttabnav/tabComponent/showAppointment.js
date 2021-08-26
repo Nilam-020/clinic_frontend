@@ -1,3 +1,4 @@
+import { render } from "@testing-library/react"
 import axios from "axios"
 import { Component,state } from "react"
 import { Container, Row, Col, Card } from "react-bootstrap"
@@ -15,6 +16,7 @@ export default class ShowAppointment extends Component {
     }
 
     componentDidMount() {
+       console.log(this.state.config)
         axios.get("http://localhost:5000/appointment/doctor", this.state.config)
             .then((response) => {
                 console.log(response)
@@ -35,17 +37,16 @@ export default class ShowAppointment extends Component {
             <>
                 <Container>
                     <Row>
+                        <Col md={12} sm={12}><h1>Today's Appointment</h1></Col>
                         {
                         this.state.appointments.map((appointment) => {
                             return (
-                                <>
-                                <Col md={12} sm={12}><h1>Today's Appointment</h1></Col>
                                 <Col md={4} sm={12}>
                                     <Card className="findDoctor">
                                     {
                                                 appointment.UID.profile !== "no-photo.jpg" ?
                                                     (
-                                                        <Card.Img src={`http://localhost:5000/${appointment.UID.profile}`} alt={`http://localhost:5000/${appointment.UID.profile}`} className="DocImage" />
+                                                        <Card.Img src={`http://localhost:5000/${appointment.UID.profile}`} className="DocImage" />
 
                                                     ) :
                                                     (
@@ -57,19 +58,14 @@ export default class ShowAppointment extends Component {
                                         <Card.Body>
                                             <Card.Title>{appointment.UID.firstname} {appointment.UID.lastname} </Card.Title>
                                             <Card.Subtitle>{appointment.UID.phone}</Card.Subtitle>
-                                            <Card.Text>
-                                                <p className="mt-3">{appointment.description} <span className="ml-3">{appointment.VID}</span></p>
-                        
-                                            </Card.Text>
+                                            <Card.Subtitle>{appointment.VID}</Card.Subtitle>
+
                                         </Card.Body>
                                     </Card>
                                 </Col>
-                                </>
                             )
                         })
-                    }{
-                        <Col md={12} sm={12}><h1>You don't have appointment</h1></Col>
-                    }                   
+                    }                     
                      
                     </Row>
                 </Container>

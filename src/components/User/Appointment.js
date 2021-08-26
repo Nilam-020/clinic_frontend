@@ -27,7 +27,7 @@ class Appointment extends Component {
         }
     }
     componentDidMount() {
-        axios.get("https://hospital-eticketing.herokuapp.com/appointment/user", this.state.config)
+        axios.get("http://localhost:5000/appointment/user", this.state.config)
             .then((response) => {
                 // console.log(response)
                 this.setState({
@@ -39,7 +39,7 @@ class Appointment extends Component {
             })
     }
     deleteAppointment = (id) => {
-        axios.post("https://hospital-eticketing.herokuapp.com/appointment/delete/" + id,{})
+        axios.post("http://localhost:5000/appointment/delete/" + id,{})
             .then((response) => {
                 window.location.reload();
             })
@@ -70,7 +70,7 @@ class Appointment extends Component {
                                                 {
                                                 appointment.AppointmentInstanceId.doctor_id.profile !== "no-photo.jpg" ?
                                                     (
-                                                        <Card.Img src={`https://hospital-eticketing.herokuapp.com/${appointment.AppointmentInstanceId.doctor_id.profile}`} className="DocImage" />
+                                                        <Card.Img src={`http://localhost:5000/${appointment.AppointmentInstanceId.doctor_id.profile}`} className="DocImage" />
 
                                                     ) :
                                                     (

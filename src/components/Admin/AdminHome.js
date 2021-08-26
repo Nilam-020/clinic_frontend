@@ -8,9 +8,7 @@ export default class AdminHome extends Component {
         super(props)
         this.state = {
             show: false
-        }
-
-     
+        }     
         
     }
     handleModal() {

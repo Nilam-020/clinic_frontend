@@ -81,17 +81,7 @@ export default class MedicalInformation extends Component {
                         <Col sm={2}></Col>
                         <Col sm={8} className="menu loginform mb-5 mt-5">
                             <Form className="mt-3 mb-3">
-                                {/* <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
-                        </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
-                        </Form.Group>
-                    </Form.Row> */}
 
                                 <Form.Group controlId="formGridAddress1">
                                     <Form.Label>Occupation</Form.Label>

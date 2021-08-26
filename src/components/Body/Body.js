@@ -11,6 +11,7 @@ import AddDoctor from '../Admin/adminComponents/AddDoctor'
 import UpdateDoctor from '../Admin/adminComponents/updateDoctor'
 import Profile from '../User/Profile'
 import Appointment from '../User/Appointment'
+import Logout from '../logout'
 
 const Body = () => {
   return (
@@ -26,6 +27,7 @@ const Body = () => {
         <Route path="/updateDoctor/:id" exact component={UpdateDoctor} />
         <Route path='/Profile' exact component={Profile} />
         <Route path='/myAppointment' exact component={Appointment} />
+        <Route path="/logout" exact component={Logout} />
         <Route path='/' exact component={Home} />
       </Switch>
     </div>

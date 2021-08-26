@@ -14,7 +14,8 @@ export default class UserPic extends Component {
                 "headers": {
                     "authorization": `Bearer ${sessionStorage.getItem("token")}`
                 }
-            }
+            },
+            user:JSON.parse(sessionStorage.getItem('user'))
         }
     }
     handleModal() {
@@ -26,7 +27,7 @@ export default class UserPic extends Component {
         };
         let pData = new FormData();
         pData.append("profile", this.state.profile);
-        axios.put("https://hospital-eticketing.herokuapp.com/user/picture", pData, this.state.config)
+        axios.put("http://localhost:5000/user/picture/"+this.state.user._id, pData)
             .then((response) => {
                 sessionStorage.setItem("user",JSON.stringify(response.data.data))
                 window.location.reload()
@@ -51,7 +52,7 @@ export default class UserPic extends Component {
                                 <div className="text-center">
                                     <Link className="btn btn-outline-primary text-center px-lg-5 py-lg-2 w-50 mt-3" onClick={() => { this.handleModal() }} type="submit">
                                         Update
-  </Link>
+                                    </Link>
                                 </div>
                             </Form>
 

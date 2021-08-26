@@ -10,7 +10,7 @@ class findDoctor extends Component {
         doctors: []
     }
     componentDidMount() {
-        axios.get("https://hospital-eticketing.herokuapp.com/doctor")
+        axios.get("http://localhost:5000/doctor")
             .then((response) => {
                 console.log(response)
                 this.setState({
@@ -41,7 +41,7 @@ class findDoctor extends Component {
                                             {
                                                 doctor.profile !== "no-photo.jpg" ?
                                                     (
-                                                        <Card.Img src={`https://hospital-eticketing.herokuapp.com/${doctor.profile}`} className="DocImage" />
+                                                        <Card.Img src={`http://localhost:5000/${doctor.profile}`} className="DocImage" />
 
                                                     ) :
                                                     (
