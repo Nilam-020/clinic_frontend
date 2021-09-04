@@ -39,9 +39,9 @@ const Call = () => {
   return (
     <div className={classes.wrapper}>
       <VideoPlayer />
-      <audio controls preload="auto" autoPlay muted>
+      {/* <audio controls preload="auto" autoPlay muted>
         <source src={audio} type="audio/mp3"></source>
-      </audio>
+      </audio> */}
       <Sidebar>
       </Sidebar>
       <Notifications />

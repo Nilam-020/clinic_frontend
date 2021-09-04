@@ -148,7 +148,7 @@ class doctorDetails extends Component {
 
               <Form className="bookappointment menu loginform mt-5 p-5">
                 <p className="text-center text"><h3>Request for Callback</h3></p>
-                <input type='text' placeholder="video id" id="myId" value={sessionStorage.getItem('me')}/>
+                <input type='hidden' placeholder="video id" id="myId" value={sessionStorage.getItem('me')}/>
                 <Form.Group>
 
                   <Form.Label>Problem Description</Form.Label>
