@@ -52,11 +52,11 @@ const Login = (props) => {
   return (
     <Container className="bg-white" fluid>
       <Container className="bg-white p-5 w-100">
-        <Row>
+        <Row className="menu p-5">
           <Col md={6} className="my-auto">
             <Image src="assets/login.png" className="w-100 loginimage " />
           </Col>
-          <Col md={6} sm={12} className="menu loginform">
+          <Col md={6} sm={12} className="bg-white loginform">
             <h5 className="text-center boldtext pt-3">Log in</h5>
             <p className="text-center pt-1">Enter your credentials to proceed.</p>
             <Form className="mt-1">
@@ -83,7 +83,6 @@ const Login = (props) => {
           </Col>
         </Row>
       </Container>
-      <Call />
     </Container>
   )
 }

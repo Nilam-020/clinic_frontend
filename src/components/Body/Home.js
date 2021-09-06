@@ -9,15 +9,15 @@ const Home = () => {
   })
   return (
     <>
-      <Container className="aboutus" data-aos="fade-down" fluid id="section1">
-        <Row className="pt-5 pl-5">
-          <Col md={6} sm={12} className="mt-5" data-aos="fade-right">
+      <Container className="aboutus" data-aos="fade-up" fluid id="section1">
+        <Row className="pt-5 pl-5 px-4">
+          <Col md={6} sm={12} className="mt-5" data-aos="fade-up">
             <h1 className="homeTitle">Find local specialists <br />who can take care<br />of yours</h1>
             <p className="mt-lg-4">We can help you find doctors and book an appointment as your <br />preferred availability.</p>
             <a className="btn btn-outline-primary px-5 mt-4 w-auto" href="/#section2" >Show Services</a>
           </Col>
           <Col md={6} sm={12}>
-            <Image src="/assets/OBJECTS.png" alt="docImage" data-aos="fade-left" className="w-100 docImage" />
+            <Image src="/assets/OBJECTS.png" alt="docImage" data-aos="fade-up" className="w-100 docImage" />
           </Col>
         </Row>
       </Container>
@@ -28,12 +28,11 @@ const Home = () => {
             <h2>4 easy steps to get your Solution</h2>
           </Col>
           <Col md={3} sm={12}>
-            <Card>
+            <Card className="card-border">
               <Card.Img src="assets/finddotor.png" className="testImg mx-auto" />
               <Card.Body>
                 <Card.Title className="text-center">
-                  Search doctor
-
+                  Find Doctor
                 </Card.Title>
                 <Card.Text className="text-center">
                   We're here to help whenever you feel ill, but keeping you healthy is our better priority.
@@ -60,7 +59,7 @@ const Home = () => {
               <Card.Img src="assets/calendar.png" class="testImg mx-auto" />
               <Card.Body>
                 <Card.Title className="text-center">
-                  Schedule Appointment
+                  write problem
 
                 </Card.Title>
                 <Card.Text className="text-center">
@@ -75,7 +74,7 @@ const Home = () => {
               <Card.Img src="assets/lightbulb.png" class="testImg mx-auto" />
               <Card.Body>
                 <Card.Title className="text-center">
-                  Get your Solution
+                  Request callback
                 </Card.Title>
                 <Card.Text className="text-center">
                   We can help you find available
@@ -107,8 +106,8 @@ const Home = () => {
 
           <Row>
             <Col md={6} sm={12} className="find">
-              <h5 className=" text-primary bold">BOOK APPOINTMENT</h5>
-              <h2>Book an appointment<br />today,online </h2>
+              <h5 className=" text-primary bold">Request callback</h5>
+              <h2>Get Free checkup<br />today,online </h2>
               <p className="pt-5">iClinic accepts most major health care to ensure you get quality care at a cost that fits within your budget. If you are uninsured or have a high deductible, we also offer medical discount.</p>
               <p><i class="fas fa-check-circle text-primary"><span className="dominefont pl-3 text-black">iClinic is health care, but easy</span></i></p>
               <p><i class="fas fa-check-circle text-primary"><span className="dominefont pl-3 text-black ">Top-searched and experienced specialities</span></i></p>

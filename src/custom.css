@@ -1,15 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap');
 .App {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   overflow: hidden;
+  letter-spacing: -.02rem;
+  line-height: 1.6;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 p{
   line-height: 1.8;
   font-size: 1rem;
 }
 .dominefont{
-  font-family: domine, 'sans-serif';
+  font-family: 'domine', 'sans-serif';
 }
 .text-black{
 color: #000 !important;
@@ -25,9 +32,28 @@ color: #000 !important;
   color: #61dafb;
 }
 .menu{
-  background-color: #DDE5F5 !important;
+  background-color: #1ecbe1 !important;
 }
-
+.menu-header a{
+  font-weight: 400;
+}
+.menu-header .logbtn{
+  border: 1px solid #1ecbe1 !important;
+  color: #1ecbe1;
+}
+.menu-header .logbtn:hover{
+  background-color: #1ecbe1 !important;
+  color: #000 !important;
+}
+.menu-header .regbtn{
+background-color: #1ecbe1 !important;
+  color: #000000;
+}
+.menu-header .regbtn:hover{
+  background-color: #ffffff !important;
+  border: 1px solid #1ecbe1 !important;
+  color: #1ecbe1;
+}
 
 .nav-link{
   color:rgba(28,28,28,71%)!important;
@@ -35,7 +61,7 @@ color: #000 !important;
   margin-right:1rem;
 }
 .aboutus{
-  background-color: #DDE5F5 !important;
+  background-color: #1ecbe1 !important;
   min-height:87vh;
 }
 
@@ -49,7 +75,7 @@ color: #000 !important;
 }
 .homeTitle{
   font-family: domine, 'sans-serif';
-  color:#252d6c;
+  color:#ffffff;
 }
 .carouselimg{
   height: 90vh !important;
@@ -64,7 +90,7 @@ color: #000 !important;
 }
 .services h2{
   font-size: 2.5rem;
-  font-family: domine, 'sans-serif';
+  font-family: 'domine', 'sans-serif';
   color: #000;
   font-weight: bold !important;
 }
@@ -86,6 +112,10 @@ color: #000 !important;
 .linkButton{
 margin-left: 40%;
 background-color: #F25044 !important;
+}
+.card-border{
+  border: 1px solid #1ecbe1;
+  
 }
 .starrating{
   color:#FFDF00;

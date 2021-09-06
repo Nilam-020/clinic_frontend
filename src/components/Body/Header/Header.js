@@ -22,7 +22,7 @@ class Header extends Component {
 
     return (
       <>
-        <Navbar className="menu pt-3 pb-3 " expand="lg">
+        <Navbar className="menu-header pt-3 pb-3 " expand="sm">
           <Container fluid>
             <Link className="navbar-brand logo" to='/'><img src="/assets/Group51.png" class="w-75 h-75" alt="iclinic" to="/"/></Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -100,8 +100,8 @@ class Header extends Component {
                     (
                       <div>
 
-                        <Link className="btn btn-outline-primary btn-lg mr-4 px-4 ml-2" to="/login">Login</Link>
-                        <Link className="btn btn-outline-light btn-lg bg-primary" to="/Register">Sign Up</Link>
+                        <Link className="btn btn-outline-primary logbtn btn-lg px-4 mx-2" to="/login">Login</Link>
+                        <Link className="btn btn-outline-light regbtn btn-lg bg-primary pl-2" to="/Register">Sign Up</Link>
                       </div>
                     )
                 }
