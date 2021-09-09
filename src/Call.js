@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Typography, AppBar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -6,7 +6,8 @@ import VideoPlayer from './components/VideoPlayer';
 import Sidebar from './components/Sidebar';
 import Notifications from './components/Notifications';
 import audio from './audioloop/callreceived.mp3'
-
+import { SocketContext } from './Context'
+import { Container,Row,Col } from 'react-bootstrap';
 const useStyles = makeStyles((theme) => ({
   appBar: {
     borderRadius: 15,
@@ -35,18 +36,19 @@ const useStyles = makeStyles((theme) => ({
 
 const Call = () => {
   const classes = useStyles();
-
+  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
   return (
-    <div className={classes.wrapper}>
-      <VideoPlayer />
-      {/* <audio controls preload="auto" autoPlay muted>
-        <source src={audio} type="audio/mp3"></source>
-      </audio> */}
-      <Sidebar>
-      </Sidebar>
-      <Notifications />
 
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <Notifications />
+          <VideoPlayer />
+          <Sidebar>
+          </Sidebar>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

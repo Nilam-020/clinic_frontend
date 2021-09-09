@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Grid, Typography, Paper, makeStyles } from '@material-ui/core';
 
 import { SocketContext } from '../Context';
+import { Col, Row } from 'react-bootstrap';
 
 const useStyles = makeStyles((theme) => ({
   video: {
@@ -30,30 +31,42 @@ const VideoPlayer = () => {
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.gridContainer}>
-      {stream && (
-        <Paper className={classes.paper}>
-          <Grid item xs={12} md={6}>
-            {token !=null ? (
-              <Typography variant="h5" gutterBottom>{user.firstname}</Typography>
-            ) :
-              (
-                <>
-                </>
-              )}
-            <video playsInline muted ref={myVideo} autoPlay className={classes.video} />
-          </Grid>
-        </Paper>
-      )}
-      {callAccepted && !callEnded && (
-        <Paper className={classes.paper}>
-          <Grid item xs={12} md={6}>
-            {/* <Typography variant="h5" gutterBottom>{call.name || 'Name'}</Typography> */}
-            <video playsInline ref={userVideo} autoPlay className={classes.video} />
-          </Grid>
-        </Paper>
-      )}
-    </Grid>
+    <>
+      {/* <Grid container className={classes.gridContainer}>
+        {stream && (
+          <Paper className={classes.paper}>
+            <Grid item xs={12} md={6}>
+              <video playsInline muted ref={myVideo} autoPlay className={classes.video} />
+            </Grid>
+          </Paper>
+        )}
+        {callAccepted && !callEnded && (
+          <Paper className={classes.paper}>
+            <Grid item xs={12} md={6}>
+              <video playsInline ref={userVideo} autoPlay className={classes.video} />
+            </Grid>
+          </Paper>
+        )}
+      </Grid> */}
+      <Row>
+        {
+          stream && (
+            <Col>
+              <video playsInline muted ref={myVideo} autoPlay className="w-100" />
+            </Col>
+          )
+        }
+
+        {
+          callAccepted && !callEnded && (
+            <Col>
+              <video playsInline muted ref={userVideo} autoPlay className="w-100" />
+            </Col>
+          )
+        }
+
+      </Row>
+    </>
   );
 };
 

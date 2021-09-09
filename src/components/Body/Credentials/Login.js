@@ -51,15 +51,15 @@ const Login = (props) => {
 
   return (
     <Container className="bg-white" fluid>
-      <Container className="bg-white p-5 w-100">
-        <Row className="menu p-5">
+      <Container className="bg-white py-5 w-100">
+        <Row className="menu py-5">
           <Col md={6} className="my-auto">
             <Image src="assets/login.png" className="w-100 loginimage " />
           </Col>
           <Col md={6} sm={12} className="bg-white loginform">
             <h5 className="text-center boldtext pt-3">Log in</h5>
             <p className="text-center pt-1">Enter your credentials to proceed.</p>
-            <Form className="mt-1">
+            <Form className="mt-1 mx-3">
               <Form.Group>
                 <Form.Label  className="labelname text-primary">Mobile Number</Form.Label>
                 <Form.Control length="10" placeholder="Mobile Number" name="phone" onChange={(e)=>{changeData(e)}}

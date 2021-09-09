@@ -1,6 +1,7 @@
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 
 
 // let userType=localStorage.getItem("usertype")
@@ -9,12 +10,27 @@ class Header extends Component {
   constructor() {
     super()
     this.state = {
-      show: false
+      show: false,
+      
     }
   }
   handleModal() {
     this.setState({ show: true })
   }
+
+
+  logOut(){
+   
+    axios.get("http://localhost:5000/endDoctor/"+JSON.parse(sessionStorage.getItem('user'))._id)
+    .then((response)=>{
+      window.location.href = "/"
+      sessionStorage.clear();
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  }
+ 
 
   render() {
     const token = sessionStorage.getItem("token");
@@ -22,7 +38,7 @@ class Header extends Component {
 
     return (
       <>
-        <Navbar className="menu-header pt-3 pb-3 " expand="sm">
+        <Navbar className="menu-header menu pt-3 pb-3 " expand="sm">
           <Container fluid>
             <Link className="navbar-brand logo" to='/'><img src="/assets/Group51.png" class="w-75 h-75" alt="iclinic" to="/"/></Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -78,7 +94,7 @@ class Header extends Component {
                 {
                   token != null && user.user_type === "Patient" ? (
                     <>
-                      <Link className=" nav-link" to='/findDoctors'>Find Doctors</Link>
+                      <Link className=" nav-link" to='/findDoctors'>Doctors</Link>
                     </>
 
                   ) :
@@ -94,7 +110,7 @@ class Header extends Component {
                     (
                       <NavDropdown title={user.firstname} id="basic-nav-dropdown" renderMenuOnMount={true}>
                         <NavDropdown.Item href="/profile" className="pr-2">My Profile</NavDropdown.Item>
-                        <NavDropdown.Item href="/logout" className="pr-2">Logout</NavDropdown.Item>
+                        <NavDropdown.Item href="#" onClick={this.logOut} className="pr-2">Logout</NavDropdown.Item>
                       </NavDropdown>
                     ) :
                     (

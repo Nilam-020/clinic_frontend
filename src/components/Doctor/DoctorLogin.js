@@ -24,7 +24,6 @@ class DoctorLogin extends Component {
         axios.post("http://localhost:5000/doctor/login", userData)
             .then((response) => {
 
-
                 if (response.data.success === true) {
                     sessionStorage.setItem('token', response.data.token);
                     sessionStorage.setItem('user', JSON.stringify(response.data.data));
@@ -36,7 +35,7 @@ class DoctorLogin extends Component {
                     this.setState({
                         loggedIn: true
                     })
-                    window.location.href = "/"
+                    window.location.href = "/appointment/doctor"
                 } else {
                     swal({
                         "title": "Error!!",

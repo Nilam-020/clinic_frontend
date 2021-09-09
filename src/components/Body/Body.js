@@ -13,6 +13,9 @@ import Profile from '../User/Profile'
 import Appointment from '../User/Appointment'
 import Logout from '../logout'
 import Register from './Credentials/Register';
+import UserCall from '../findDoctor/userCall';
+import ShowAppointment from '../Doctor/appointmenttabnav/tabComponent/showAppointment';
+import UserInfo from '../Doctor/appointmenttabnav/tabComponent/UserInfo';
 
 const Body = () => {
   return (
@@ -21,7 +24,8 @@ const Body = () => {
         <Route path='/login' exact component={Login} />
         <Route path='/findDoctors' exact component={findDoctors} />
         <Route path='/doctorDetail/:id' exact component={doctorDetail} />
-        <Route path="/appointment/doctor" exact component={maintab} />
+        <Route path="/doctorInfo/:id" exact component={UserCall} />
+        <Route path="/appointment/doctor" exact component={ShowAppointment} />
         <Route path="/Users" exact component={Users} />
         <Route path="/doctor" exact component={Doctor} />
         <Route path="/addDoctor" exact component={AddDoctor} />
@@ -30,6 +34,7 @@ const Body = () => {
         <Route path='/myAppointment' exact component={Appointment} />
         <Route path="/logout" exact component={Logout} />
         <Route path="/register" exact component={Register} />
+        <Route path="/userInfo/:aid" exact component={UserInfo} />
         <Route path='/' exact component={Home} />
       </Switch>
     </div>
