@@ -77,12 +77,14 @@ const UserInfo = (props) => {
               </>
             ) : (
               <Col sm={5} className="menu mb-2">
-                {
-                  userAppointment && userAppointment.status==='unread' ?
-                  (
-                    <>
-                      <Table className="table table-striped mt-2">
-                        <thead>
+
+                <Table className="table table-striped mt-2">
+                  <thead>
+
+                    {
+                      userAppointment &&
+                      (
+                        <>
                           <tr>
                             <th>Patient Name</th>
                             <td>{userAppointment.UID.firstname} {userAppointment.UID.lastname}</td>
@@ -117,88 +119,45 @@ const UserInfo = (props) => {
                           </tr>
                           <tr>
                             <th>Height</th>
-                            <td>{userAppointment.UID.feet}.{userAppointment.UID.feet}ft</td>
+                            <td>{userAppointment.feet}.{userAppointment.UID.feet}ft</td>
                           </tr>
                           <tr>
                             <th>Weight</th>
                             <td>{userAppointment.UID.weight}</td>
                           </tr>
-                        </thead>
-                      </Table>
+                        </>
+                      )
+                    }
+
+
+                  </thead>
+
+                </Table>
+
+                {
+                  userAppointment &&
+                  (
+                    <>
                       <h4>Problem</h4>
                       <textarea rows="5" className="w-100" value={userAppointment.description} disabled={true} />
                       <Form className="mt-3 text-center">
-                        <button type="button" name="complete" className="btn btn-primary p-2" onClick={(e) => { markComplete(e) }}>  Mark as Completed  </button>
+                        {
+                          userAppointment.status == "unread" ?
+                            (
+                              <button type="button" name="complete" className="btn btn-primary p-2" onClick={(e) => { markComplete(e) }}>  Mark as Completed  </button>
+                            ) :
+                            (
+                              <>
+                                <button type="button" name="complete" className="btn btn-success p-2" onClick={(e) => { markComplete(e) }}>  Completed  </button>
+
+                              </>
+                            )
+                        }
+
                       </Form>
-                    </>
-                  ) : 
-                  (
-                    <>
-                      <>
-                      <Table className="table table-striped mt-2">
-                        <thead>
-                          <tr>
-                            <th>Patient Name</th>
-                            <td>{userAppointment.UID.firstname} {userAppointment.UID.lastname}</td>
-                          </tr>
-                          <tr>
-                            <th>Address</th>
-                            <td>{userAppointment.UID.address}</td>
-                          </tr>
-                          <tr>
-                            <th>Age</th>
-                            <td>{userAppointment.UID.date_of_birth}</td>
-                          </tr>
-                          <tr>
-                            <th>Phone</th>
-                            <td>{userAppointment.UID.phone}</td>
-                          </tr>
-                          <tr>
-                            <th>Email</th>
-                            <td>{userAppointment.UID.email}</td>
-                          </tr>
-                          <tr>
-                            <th>Blood Group</th>
-                            <td>{userAppointment.UID.blood_group}</td>
-                          </tr>
-                          <tr>
-                            <th>occupation</th>
-                            <td>{userAppointment.UID.occupation}</td>
-                          </tr>
-                          <tr>
-                            <th>Smoking Habit</th>
-                            <td>{userAppointment.UID.smoking_habit}</td>
-                          </tr>
-                          <tr>
-                            <th>Height</th>
-                            <td>{userAppointment.UID.feet}.{userAppointment.UID.feet}ft</td>
-                          </tr>
-                          <tr>
-                            <th>Weight</th>
-                            <td>{userAppointment.UID.weight}</td>
-                          </tr>
-                        </thead>
-                      </Table>
-                        <h4>Problem</h4>
-
-
-
-                        <textarea rows="5" className="w-100" value={userAppointment.description} disabled={true} />
-
-
-
-                        <Form className="mt-3 text-center">
-
-                          <button type="button" className="btn btn-success p-2">  Completed  </button>
-
-
-                        </Form>
-                      </>
                     </>
                   )
                 }
-
-
               </Col>
 
             )
