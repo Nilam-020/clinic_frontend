@@ -24,8 +24,6 @@ class doctorDetails extends Component {
   }
   componentDidMount() {
 
-
-
     axios.get("http://localhost:5000/doctor/" + this.props.match.params.id).then((response) => {
 
       this.setState({
@@ -68,8 +66,6 @@ class doctorDetails extends Component {
       })
   }
 
-
-
   bookappointment = (e) => {
     console.log(this.state)
 
@@ -99,11 +95,11 @@ class doctorDetails extends Component {
 
         <Container>
           <Row className="mt-2">
-            <Col sm={12} md={6}>
+            <Col md={6} sm={12}>
             <Call />
 
             </Col>
-            <Col sm={12} md={6} className="problem_card">
+            <Col md={6} sm={12} className="problem_card">
 
               <div>
                 <Form className="bookappointment loginform mt-5 p-5">

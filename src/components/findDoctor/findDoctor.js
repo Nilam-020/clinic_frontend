@@ -50,14 +50,14 @@ class findDoctor extends Component {
                       }
                     </Col>
                     <Col sm={5}>
-                      <Card className="findDoctor" style={{border:'0px solid #DDE5F5'}}>
+                      <Card className="findDoctor" style={{ border: '0px solid #DDE5F5' }}>
                         <Card.Body className="card_style">
-                          <Card.Title style={{fontWeight:'700'}}>Dr. {doctor.firstname} {doctor.lastname}</Card.Title>
-                          <Card.Subtitle className="mt-1" style={{fontSize:'0.8rem'}}>{doctor.department} </Card.Subtitle>
-                          <Card.Subtitle className="mt-2 mb-3" style={{fontSize:'0.8rem'}}>NMC Number {doctor.nmc}</Card.Subtitle>
-                          <Card.Subtitle className="my-2 h2" style={{fontWeight:'600'}}>{doctor.worked}</Card.Subtitle>
-                          <Card.Text className="mt-2" style={{fontSize:'0.8rem', alignTextAlign: 'justify', fontWeight:'500'}}>
-        {doctor.description}
+                          <Card.Title style={{ fontWeight: '700' }}>Dr. {doctor.firstname} {doctor.lastname}</Card.Title>
+                          <Card.Subtitle className="mt-1" style={{ fontSize: '0.8rem' }}>{doctor.department} </Card.Subtitle>
+                          <Card.Subtitle className="mt-2 mb-3" style={{ fontSize: '0.8rem' }}>NMC Number {doctor.nmc}</Card.Subtitle>
+                          <Card.Subtitle className="my-2 h2" style={{ fontWeight: '600' }}>{doctor.worked}</Card.Subtitle>
+                          <Card.Text className="mt-2" style={{ fontSize: '0.8rem', alignTextAlign: 'justify', fontWeight: '500' }}>
+                            {doctor.description}
                           </Card.Text>
                         </Card.Body>
                       </Card>
@@ -67,35 +67,53 @@ class findDoctor extends Component {
                         doctor.isActive === true ? (
                           <>
                             <div className="text-center docbtn_find">
-                            <h1 className="text-left stardocno mt-1"> <StarRatings
-                              rating={doctor.rating}
-                              starRatedColor="#F25044"
-                              starHoverColor="#F25044"
-                              starDimension="30px"
-                              starSpacing="5px"
-                              numberOfStars={5}
-                              name={this.props.match.params.id}
-                            /></h1>
+                              <h1 className="text-left stardocno mt-1"> <StarRatings
+                                rating={doctor.rating}
+                                starRatedColor="#F25044"
+                                starHoverColor="#F25044"
+                                starDimension="30px"
+                                starSpacing="5px"
+                                numberOfStars={5}
+                                name={this.props.match.params.id}
+                              /></h1>
 
                               {/* <Link className="btn btn-success w-100 enabled_btn mb-2 text-center" to={'/doctorDetail/' + doctor._id}> Available</Link> */}
                               <Link className="btn btn-success w-100 enabled_btn mb-2 text-center" to={'/doctorInfo/' + doctor._id}> Available</Link>
                               <h1 className="text-left stardoc mt-1"> <StarRatings
-                              rating={doctor.rating}
-                              starRatedColor="#F25044"
-                              starHoverColor="#F25044"
-                              starDimension="30px"
-                              starSpacing="5px"
-                              numberOfStars={5}
-                              name={this.props.match.params.id}
-                            /></h1>
-                             
+                                rating={doctor.rating}
+                                starRatedColor="#F25044"
+                                starHoverColor="#F25044"
+                                starDimension="30px"
+                                starSpacing="5px"
+                                numberOfStars={5}
+                                name={this.props.match.params.id}
+                              /></h1>
+
                             </div>
                           </>
 
                         ) :
                           (
                             <div className="text-center docbtn_find">
-                              <Link className="btn btn-danger disabled_btn w-100 mb-2 py-auto" disabled> Not Available</Link>
+                                <h1 className="text-left stardocno mt-1"> <StarRatings
+                                  rating={doctor.rating}
+                                  starRatedColor="#F25044"
+                                  starHoverColor="#F25044"
+                                  starDimension="30px"
+                                  starSpacing="5px"
+                                  numberOfStars={5}
+                                  name={this.props.match.params.id}
+                                /></h1>
+                                <Link className="btn btn-danger disabled_btn w-100 mb-2 py-auto" disabled> Not Available</Link>
+                                <h1 className="text-left stardoc mt-1"> <StarRatings
+                                  rating={doctor.rating}
+                                  starRatedColor="#F25044"
+                                  starHoverColor="#F25044"
+                                  starDimension="30px"
+                                  starSpacing="5px"
+                                  numberOfStars={5}
+                                  name={this.props.match.params.id}
+                                /></h1>
                             </div>
 
                           )

@@ -40,7 +40,7 @@ class Header extends Component {
       <>
         <Navbar className="menu-header menu pt-3 pb-3 " expand="sm">
           <Container fluid>
-            <Link className="navbar-brand logo" to='/'><img src="/assets/Group51.png" class="w-75 h-75" alt="iclinic" to="/"/></Link>
+            <Link className="navbar-brand logo" to='/'><img src="/assets/youheal.png" class="w-25" alt="iclinic" to="/"/></Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto navtext">

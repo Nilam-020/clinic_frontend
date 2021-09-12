@@ -13,7 +13,7 @@ const Home = () => {
         <Row className="pt-5 pl-5 px-4">
           <Col md={6} sm={12} className="mt-5" data-aos="fade-up">
             <h1 className="homeTitle">Find local specialists <br />who can take care<br />of yours</h1>
-            <p className="mt-lg-4">We can help you find doctors and book an appointment as your <br />preferred availability.</p>
+            <p className="mt-lg-4">We can help you find doctors and book an appointment for <br />Virtual Consulation.</p>
             <a className="btn btn-outline-primary px-5 mt-4 w-auto" href="/#section2" >Show Services</a>
           </Col>
           <Col md={6} sm={12}>
@@ -35,7 +35,7 @@ const Home = () => {
                   Find Doctor
                 </Card.Title>
                 <Card.Text className="text-center">
-                  We're here to help whenever you feel ill, but keeping you healthy is our better priority.
+                  Find the Available Doctors.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -49,7 +49,7 @@ const Home = () => {
 
                 </Card.Title>
                 <Card.Text className="text-center">
-                  We can help you find available doctor appointments.
+                  We can help you find available doctor information.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -92,12 +92,12 @@ const Home = () => {
             <Col md={5} sm={12} className="find" data-aos="fade-left">
               <h5 className=" text-primary bold">FIND DOCTORS</h5>
               <h2>Consult a doctor anytime,<br />anywhere by search </h2>
-              <p className="pt-5">iClinic accepts most major health care to ensure you get quality care at a cost that fits within your budget. If you are uninsured or have a high deductible, we also offer medical discount.</p>
-              <p><i class="fas fa-check-circle text-primary"><span className="dominefont pl-3 text-black">iClinic is health care, but easy</span></i></p>
+              <p className="pt-5">YouHeal Health accepts most major health care to ensure you get quality care at a cost that fits within your budget. If you are uninsured or have a high deductible, we also offer medical discount.</p>
+              <p><i class="fas fa-check-circle text-primary"><span className="dominefont pl-3 text-black">YouHeal health is health care, but easy</span></i></p>
               <p><i class="fas fa-check-circle text-primary"><span className="dominefont pl-3 text-black ">Top-searched and experienced specialities</span></i></p>
             </Col>
             <Col md={7} sm={12}>
-              <img src="assets/Group157.png" alt="someimage" className="w-100 h-100 aboutImg" />
+              <img src="assets/Group530.png" alt="someimage" className="w-100 h-100 aboutImg" />
             </Col>
 
           </Row>
@@ -109,11 +109,11 @@ const Home = () => {
               <h5 className=" text-primary bold">Request callback</h5>
               <h2>Get Free checkup<br />today,online </h2>
               <p className="pt-5">iClinic accepts most major health care to ensure you get quality care at a cost that fits within your budget. If you are uninsured or have a high deductible, we also offer medical discount.</p>
-              <p><i class="fas fa-check-circle text-primary"><span className="dominefont pl-3 text-black">iClinic is health care, but easy</span></i></p>
+              <p><i class="fas fa-check-circle text-primary"><span className="dominefont pl-3 text-black">YouHeal Health is health care, but easy</span></i></p>
               <p><i class="fas fa-check-circle text-primary"><span className="dominefont pl-3 text-black ">Top-searched and experienced specialities</span></i></p>
             </Col>
             <Col md={6} sm={12}>
-              <img src="assets/woman-patient-dentist.png" alt="someimage" className="w-100 h-100 aboutImg" />
+              <img src="assets/MaskGroup1.png" alt="someimage" className="w-100 h-100 aboutImg" />
             </Col>
 
           </Row>
