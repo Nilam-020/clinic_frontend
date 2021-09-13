@@ -38,6 +38,12 @@ color: #000 !important;
 .menu-header a{
   font-weight: 400;
 }
+.menu-header .logo img{
+  width: 100%;
+  max-width: 245px;
+  padding-top: .40625rem;
+  padding-bottom: 0;
+}
 .menu-header .logbtn{
   border: 1px solid #0088E2 !important;
   color: hsl(0, 0%, 0%);

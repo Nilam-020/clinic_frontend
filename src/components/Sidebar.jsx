@@ -70,7 +70,7 @@ const Sidebar = ({ children }) => {
                         ) :
                           (
                             <>
-                              <Grid item xs={12} md={6} className={classes.padding} style={{ display: 'hidden' }}>
+                              {/* <Grid item xs={12} md={6} className={classes.padding} style={{ display: 'hidden' }}>
                                 <Typography gutterBottom variant="h6">Account Info</Typography>
                                 <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
 
@@ -80,7 +80,7 @@ const Sidebar = ({ children }) => {
                                     Copy Your ID
                                   </Button>
                                 </CopyToClipboard>
-                              </Grid>
+                              </Grid> */}
                             </>
 
                           )

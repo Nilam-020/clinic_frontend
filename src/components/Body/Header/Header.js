@@ -38,13 +38,12 @@ class Header extends Component {
 
     return (
       <>
-        <Navbar className="menu-header menu pt-3 pb-3 " expand="sm">
-          <Container fluid>
-            <Link className="navbar-brand logo" to='/'><img src="/assets/youheal.png" class="w-25" alt="iclinic" to="/"/></Link>
+        <Navbar className="menu-header menu pt-3 pb-3 " expand="md">
+          <Container>
+            <Link className="navbar-brand logo" to='/'><img src="/assets/youheal.png"  alt="YouHeal Health" to="/"/></Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto navtext">
-
                 {
                   token == null ?
                     (

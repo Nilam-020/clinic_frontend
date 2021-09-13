@@ -47,7 +47,20 @@ class Users extends Component {
                                         this.state.users.map((user) => {
                                             return (
                                                 <tr>
-                                                    <td className=""><img src="assets/Group 51.png" /></td>
+                                                    <td className="">
+                                                      {
+                                                         
+                                                          user.profile !== "no-photo.jpg" ?
+                                                            (
+                                                              <img src={`http://localhost:5000/${user.profile}`} className="DocImage mx-auto" />
+                                  
+                                                            ) :
+                                                            (
+                                                              <img src="assets/noimage.png" className="DocImage" />
+                                                            )
+                                                      
+                                                      }
+                                                      </td>
                                                     <td>{user.firstname} {user.lastname}</td>
                                                     <td>{user.address}</td>
                                                     <td>{user.phone}</td>

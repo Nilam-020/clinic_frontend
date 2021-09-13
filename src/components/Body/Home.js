@@ -9,8 +9,9 @@ const Home = () => {
   })
   return (
     <>
-      <Container className="aboutus" data-aos="fade-up" fluid id="section1">
-        <Row className="pt-5 pl-5 px-4">
+     <Container className="aboutus" data-aos="fade-up" id="section1" fluid>
+     <Container>
+        <Row className="pt-5 pl-5 px-4" fluid>
           <Col md={6} sm={12} className="mt-5" data-aos="fade-up">
             <h1 className="homeTitle">Find local specialists <br />who can take care<br />of yours</h1>
             <p className="mt-lg-4">We can help you find doctors and book an appointment for <br />Virtual Consulation.</p>
@@ -21,6 +22,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
+     </Container>
       <Container className="testimonials mt-5" id="section2" data-aos="fade-up" >
         <Row>
           <Col sm={12} className="services text-center">

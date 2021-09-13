@@ -60,7 +60,7 @@ const VideoPlayer = () => {
         {
           callAccepted && !callEnded && (
             <Col>
-              <video playsInline muted ref={userVideo} autoPlay className="w-100" />
+              <video playsInline ref={userVideo} autoPlay className="w-100" />
             </Col>
           )
         }

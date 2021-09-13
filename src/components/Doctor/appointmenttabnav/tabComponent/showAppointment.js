@@ -62,8 +62,10 @@ export default class ShowAppointment extends Component {
 
                       <Card.Body syle={{ borderTop: '1px solid #f0f0f0' }}>
                         <Card.Title className="text-center">{appointment.UID.firstname} {appointment.UID.lastname} </Card.Title>
-                        <Card.Subtitle className="text-center">{appointment.UID.phone} <span>{appointment.created_Date} {appointment.created_Time}</span> </Card.Subtitle>
-                        <Card.Subtitle className="text-center">{appointment.VID}</Card.Subtitle>
+                        <Card.Subtitle className="text-center mt-1">{appointment.UID.phone}</Card.Subtitle>
+                        <Card.Subtitle className="text-center  mt-1">{appointment.created_date}</Card.Subtitle>
+                        <Card.Subtitle className="text-center  mt-1">{appointment.created_Time}</Card.Subtitle>
+                        <Card.Subtitle className="text-center  mt-1">{appointment.UID.address}</Card.Subtitle>
                         <div className="mt-5 py-2 px-1 docInfocard">
                           {
                             appointment.status === "completed" ? (

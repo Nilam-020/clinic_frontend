@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Col, Row, Container, Table, Form } from 'react-bootstrap'
+import { Col, Row, Container, Table, Form, Button } from 'react-bootstrap'
 import axios from 'axios'
 import Doctorcall from './Doctorcall'
 import { SocketContext } from '../../../../Context'
-import { Link } from 'react-router-dom'
-import { AllInboxOutlined } from '@material-ui/icons'
 import { toast } from 'react-toastify'
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+
 
 const UserInfo = (props) => {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
@@ -69,7 +69,9 @@ const UserInfo = (props) => {
       <Container fluid>
         <Row className="mt-2">
           <Col>
+
             <Doctorcall />
+
           </Col>
           {
             callAccepted ? (
@@ -144,7 +146,17 @@ const UserInfo = (props) => {
                         {
                           userAppointment.status == "unread" ?
                             (
-                              <button type="button" name="complete" className="btn btn-primary p-2" onClick={(e) => { markComplete(e) }}>  Mark as Completed  </button>
+                              <>
+                                <p>
+
+                                  <CopyToClipboard text={userAppointment.VID}>
+                                    <Button className="btn btn-primary">
+                                      Copy Call ID
+                                    </Button>
+                                  </CopyToClipboard>
+                                </p>
+                                <button type="button" name="complete" className="btn btn-primary p-2" onClick={(e) => { markComplete(e) }}>  Mark as Completed  </button>
+                              </>
                             ) :
                             (
                               <>

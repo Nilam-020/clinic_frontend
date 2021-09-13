@@ -73,15 +73,20 @@ class Doctor extends Component {
                                             return (
                                                 <>
                                                     <tr>
-                                                        {
-                                                            doctor.profile != "no-photo.jpg" ?
-                                                                (
-                                                                    <td className=""><img src={`http://localhost:5000/${doctor.profile}`} className="showDoctorImg rounded-circle"/></td>
-                                                                ) :
-                                                                (
-                                                                    <td className=""><img src="assets/Group 51.png" className="showDoctorImg rounded-circle" /></td>
-                                                                )
-                                                        }
+                                                    <td className="">
+                                                      {
+                                                         
+                                                          doctor.profile !== "no-photo.jpg" ?
+                                                            (
+                                                              <img src={`http://localhost:5000/${doctor.profile}`} className="DocImage mx-auto" />
+                                  
+                                                            ) :
+                                                            (
+                                                              <img src="assets/noDoctor.png" className="DocImage" />
+                                                            )
+                                                      
+                                                      }
+                                                      </td>
 
 
                                                         <td>{doctor.firstname} {doctor.lastname}</td>
