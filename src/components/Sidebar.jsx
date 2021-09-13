@@ -53,7 +53,7 @@ const Sidebar = ({ children }) => {
             <>
               <Grid item xs={12} md={6} className={classes.padding}>
                 <Button variant="contained" color="secondary" startIcon={<PhoneDisabled fontSize="large" />} fullWidth onClick={leaveCall} className={classes.margin}>
-                  Hang Up
+                  Leave
                 </Button>
               </Grid>
             </>

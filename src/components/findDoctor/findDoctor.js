@@ -76,9 +76,7 @@ class findDoctor extends Component {
                                 numberOfStars={5}
                                 name={this.props.match.params.id}
                               /></h1>
-
-                              {/* <Link className="btn btn-success w-100 enabled_btn mb-2 text-center" to={'/doctorDetail/' + doctor._id}> Available</Link> */}
-                              <Link className="btn btn-success w-100 enabled_btn mb-2 text-center" to={'/doctorInfo/' + doctor._id}> Available</Link>
+                              <a className="btn btn-success w-100 enabled_btn mb-2 text-center" href={'/doctorInfo/' + doctor._id}> Available</a>
                               <h1 className="text-left stardoc mt-1"> <StarRatings
                                 rating={doctor.rating}
                                 starRatedColor="#F25044"

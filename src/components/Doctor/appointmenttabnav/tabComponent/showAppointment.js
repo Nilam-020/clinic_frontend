@@ -4,7 +4,7 @@ import { Component, state } from "react"
 import { Container, Row, Col, Card } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import moment from "moment"
-
+import noimage from '../../../../images/noimage.png'
 export default class ShowAppointment extends Component {
 
   state = {
@@ -55,7 +55,7 @@ export default class ShowAppointment extends Component {
 
                           ) :
                           (
-                            <Card.Img src="assets/noimage.png" className="DocImage" />
+                            <Card.Img src={noimage} className="DocImage" />
 
                           )
                       }
@@ -63,7 +63,7 @@ export default class ShowAppointment extends Component {
                       <Card.Body syle={{ borderTop: '1px solid #f0f0f0' }}>
                         <Card.Title className="text-center">{appointment.UID.firstname} {appointment.UID.lastname} </Card.Title>
                         <Card.Subtitle className="text-center mt-1">{appointment.UID.phone}</Card.Subtitle>
-                        <Card.Subtitle className="text-center  mt-1">{appointment.created_date}</Card.Subtitle>
+                        <Card.Subtitle className="text-center  mt-1">{appointment.created_Date}</Card.Subtitle>
                         <Card.Subtitle className="text-center  mt-1">{appointment.created_Time}</Card.Subtitle>
                         <Card.Subtitle className="text-center  mt-1">{appointment.UID.address}</Card.Subtitle>
                         <div className="mt-5 py-2 px-1 docInfocard">
@@ -89,7 +89,7 @@ export default class ShowAppointment extends Component {
                                       <Link className="btn btn-primary">Pending</Link>
                                     </Col>
                                     <Col className="">
-                                      <Link to={"/userInfo/" + appointment._id._id} className="btn btn-primary text-right float-end">Show More</Link>
+                                      <a href={"/userInfo/" + appointment._id._id} className="btn btn-primary text-right float-end">Show More</a>
                                     </Col>
                                   </Row>
                                 </>

@@ -76,6 +76,7 @@ const UserCall = (props) => {
       .then((response) => {
         if (response.data.success === true) {
           toast.success("Your request have been successfully submitted, please wait..")
+          toast.success("Please stay here. You will receive a join to call request soon...")
 
         }
         else {
