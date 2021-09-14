@@ -7,7 +7,7 @@ import Sidebar from './components/Sidebar';
 import Notifications from './components/Notifications';
 import audio from './audioloop/callreceived.mp3'
 import { SocketContext } from './Context'
-import { Container,Row,Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 const useStyles = makeStyles((theme) => ({
   appBar: {
     borderRadius: 15,
@@ -44,6 +44,9 @@ const Call = () => {
         <Col>
           <Notifications />
           <VideoPlayer />
+
+        </Col>
+        <Col sm={12}>
           <Sidebar>
           </Sidebar>
         </Col>

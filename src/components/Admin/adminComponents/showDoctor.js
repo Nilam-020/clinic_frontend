@@ -69,7 +69,7 @@ class Doctor extends Component {
                                 </thead>
                                 <tbody>
                                     {
-                                        this.state.doctors.map((doctor) => {
+                                        this.state.doctors.reverse().map((doctor) => {
                                             return (
                                                 <>
                                                     <tr>

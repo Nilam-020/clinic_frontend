@@ -44,12 +44,11 @@ class Users extends Component {
                                 </thead>
                                 <tbody>
                                     {
-                                        this.state.users.map((user) => {
+                                        this.state.users.reverse().map((user) => {
                                             return (
                                                 <tr>
                                                     <td className="">
-                                                      {
-                                                         
+                                                      {                                                         
                                                           user.profile !== "no-photo.jpg" ?
                                                             (
                                                               <img src={`http://localhost:5000/${user.profile}`} className="DocImage mx-auto" />

@@ -3,7 +3,8 @@ import axios from "axios"
 import { Component, state } from "react"
 import { Container, Row, Col, Card } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import moment from "moment"
+// const moment = require("moment")
+import moment from 'moment'
 import noimage from '../../../../images/noimage.png'
 export default class ShowAppointment extends Component {
 
@@ -44,7 +45,7 @@ export default class ShowAppointment extends Component {
           <Row className="py-5">
             {/* <Col md={12} sm={12}><h1>Today's Appointment</h1></Col> */}
             {
-              this.state.appointments.map((appointment) => {
+              this.state.appointments.reverse().map((appointment) => {
                 return (
                   <Col md={4} sm={12}>
                     <Card className="findDoctor docInfocard mb-5 py-2">
@@ -60,13 +61,17 @@ export default class ShowAppointment extends Component {
                           )
                       }
 
-                      <Card.Body syle={{ borderTop: '1px solid #f0f0f0' }}>
+                      <Card.Body className="" syle={{ borderTop: '1px solid #f0f0f0' }}>
                         <Card.Title className="text-center">{appointment.UID.firstname} {appointment.UID.lastname} </Card.Title>
                         <Card.Subtitle className="text-center mt-1">{appointment.UID.phone}</Card.Subtitle>
-                        <Card.Subtitle className="text-center  mt-1">{appointment.created_Date}</Card.Subtitle>
-                        <Card.Subtitle className="text-center  mt-1">{appointment.created_Time}</Card.Subtitle>
                         <Card.Subtitle className="text-center  mt-1">{appointment.UID.address}</Card.Subtitle>
-                        <div className="mt-5 py-2 px-1 docInfocard">
+                        <Card.Subtitle className="mt-3 text-muted mx-auto">
+                         <span className=""> <i class="far fa-calendar-alt mr-5"style={{marginRight:'10px'}}></i>{moment(appointment.created_Date).format('MMM DD, YYYY')}</span> 
+                        <span className="float-end"><i class="fas fa-clock" style={{marginRight:'10px'}}></i>{appointment.created_Time}</span>
+                        </Card.Subtitle>
+                        
+                        <Card.Subtitle className="mt-3 text-muted text-end" style={{fontStyle:'italic',fontSize:'13px'}}>requested {moment(appointment.created_Date).endOf('day').fromNow()}</Card.Subtitle>
+                        <div className="mt-3 py-2 px-1 docInfocard">
                           {
                             appointment.status === "completed" ? (
                               <>
