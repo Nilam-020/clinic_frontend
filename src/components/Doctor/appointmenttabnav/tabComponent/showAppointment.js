@@ -20,7 +20,7 @@ export default class ShowAppointment extends Component {
 
   componentDidMount() {
     console.log(this.state.config)
-    axios.get("http://localhost:5000/appointment/doctor", this.state.config)
+    axios.get("https://hospital-eticketing.herokuapp.com/appointment/doctor", this.state.config)
       .then((response) => {
         console.log(response)
         console.log(response.data.data)

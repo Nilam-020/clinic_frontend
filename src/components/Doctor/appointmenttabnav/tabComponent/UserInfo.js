@@ -24,7 +24,7 @@ const UserInfo = (props) => {
 
   useEffect(() => {
 
-    axios.get("http://localhost:5000/retrieveAppointmentInstance/" + props.match.params.aid)
+    axios.get("https://hospital-eticketing.herokuapp.com/retrieveAppointmentInstance/" + props.match.params.aid)
       .then((response) => {
         console.log(response)
         if (response.data.success == true) {

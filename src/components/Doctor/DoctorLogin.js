@@ -21,7 +21,7 @@ class DoctorLogin extends Component {
             phone: this.state.phone,
             password: this.state.password
         }
-        axios.post("http://localhost:5000/doctor/login", userData)
+        axios.post("https://hospital-eticketing.herokuapp.com/doctor/login", userData)
             .then((response) => {
 
                 if (response.data.success === true) {

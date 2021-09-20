@@ -24,7 +24,7 @@ class doctorDetails extends Component {
   }
   componentDidMount() {
 
-    axios.get("http://localhost:5000/doctor/" + this.props.match.params.id).then((response) => {
+    axios.get("https://hospital-eticketing.herokuapp.com/doctor/" + this.props.match.params.id).then((response) => {
 
       this.setState({
         doctor: response.data.data
@@ -70,7 +70,7 @@ class doctorDetails extends Component {
     console.log(this.state)
 
     e.preventDefault();
-    axios.post("http://localhost:5000/appointment/add/" + this.props.match.params.id + "/" + this.state.user._id, { "description": this.state.description, "VID": document.querySelector('#myId').value })
+    axios.post("https://hospital-eticketing.herokuapp.com/appointment/add/" + this.props.match.params.id + "/" + this.state.user._id, { "description": this.state.description, "VID": document.querySelector('#myId').value })
       .then((response) => {
         console.log(response)
       }).catch((err) => {

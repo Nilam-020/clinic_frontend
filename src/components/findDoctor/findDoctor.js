@@ -12,7 +12,7 @@ class findDoctor extends Component {
     }
   }
   componentDidMount() {
-    axios.get("http://localhost:5000/doctor")
+    axios.get("https://hospital-eticketing.herokuapp.com/doctor")
       .then((response) => {
         console.log(response)
         this.setState({
