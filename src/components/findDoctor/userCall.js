@@ -72,7 +72,7 @@ const UserCall = (props) => {
 
   const addappointment = (e) => {
     e.preventDefault()
-    axios.post("http://localhost:5000/appointment/add/" + props.match.params.id + "/" + JSON.parse(sessionStorage.getItem("user"))._id, { "description": appointment.description, "VID": document.querySelector('#myId').value })
+    axios.post("https://hospital-eticketing.herokuapp.com/appointment/add/" + props.match.params.id + "/" + JSON.parse(sessionStorage.getItem("user"))._id, { "description": appointment.description, "VID": document.querySelector('#myId').value })
       .then((response) => {
         if (response.data.success === true) {
           toast.success("Your request have been successfully submitted, please wait..")
@@ -88,7 +88,7 @@ const UserCall = (props) => {
   }
 
   useEffect(() => {
-    axios.get("http://localhost:5000/doctor/" + props.match.params.id).then((response) => {
+    axios.get("https://hospital-eticketing.herokuapp.com/doctor/" + props.match.params.id).then((response) => {
       setInfo(response.data.data)
     }).catch((err) => {
       console.log(err);
